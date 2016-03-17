@@ -1,4 +1,4 @@
-# `i3tools` - Personal scripts for making `i3` suck less.
+# `i3tools` - Stuff for making `i3` suck less.
 
 ## `i3tag` - Dynamic tagging for `i3`.
 
