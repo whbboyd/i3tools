@@ -38,4 +38,4 @@ a workspace to switch to. The `move` variant of the commands are analogous, but
 move the currently focused container to the workspace, instead of focusing it.
 
 This allows behavior almost identical to the default `$mod[-Shift]-t` and
-`$mod[-Shift]-<N>` from `i3`.
+`$mod[-Shift]-<N>` from `wmii`.
