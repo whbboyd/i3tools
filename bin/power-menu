@@ -1,0 +1,22 @@
+#!/bin/sh
+
+POWER_PROMPT=''
+I3_PROMPT=''
+
+prompt() {
+    local prefix
+    prefix="$1"; shift
+    printf '%s\n' "$@" | rofi -dmenu -p "${prefix} "
+}
+
+case "$(prompt "$POWER_PROMPT" i3 lock suspend restart shutdown)" in
+    i3) case "$(prompt "$I3_PROMPT" reload restart exit)" in
+        reload)     j4-make-config && i3-msg reload     ;;
+        restart)    j4-make-config && i3-msg restart    ;;
+        exit)       j4-make-config && i3-msg exit       ;;
+    esac ;;
+    lock)           xscreensaver-command -lock          ;;
+    sleep)          systemctl suspend                   ;;
+    reboot)         systemctl reboot                    ;;
+    shutdown)       systemctl poweroff                  ;;
+esac
