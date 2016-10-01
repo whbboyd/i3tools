@@ -15,7 +15,12 @@ find_workspace_by_number() {
 }
 
 prompt_for_workspace() {
-    printf '%s' "$(get_workspaces)" | rofi -dmenu -p ' '
+	if hash rofi &> /dev/null; then
+		command="rofi -dmenu"
+	else
+		command=dmenu
+	fi
+    printf '%s' "$(get_workspaces)" | $command -p ' '
 }
 
 case "$1" in
